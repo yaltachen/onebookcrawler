@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生成word文档</title>
+    <script>
+        function sendReq() {
+            let url = document.getElementById("request_url").value
+            url = window.btoa(url)
+            let a = document.createElement('a');
+            a.href = "http://localhost:9000/book/"+url,true;
+            a.click();
+            // let xmlhttp = new XMLHttpRequest()
+            // xmlhttp.open("get","http://localhost:9000/book/"+url,true)
+            // xmlhttp.send(null)
+        }
+    </script>
+</head>
+<body>
+    <input id="request_url" type="text">
+    <input type="button" onclick="sendReq()" value="生成word">
+</body>
+</html>
