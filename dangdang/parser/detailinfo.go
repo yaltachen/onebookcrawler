@@ -33,22 +33,16 @@ func ParseBookDetail(bookName string, body []byte) *models.BookDetail {
 	s := doc.Find("#authorIntroduction").Find(".descrip")
 	for ; len(s.Children().Nodes) != 0 && s.Text() != ""; s = s.NextAll() {
 		bookDetail.AuthorIntro += s.Text()
-		bookDetail.AuthorIntro += `
-		`
 	}
 	// 内容简介
 	s = doc.Find("#content").Find(".descrip")
 	for ; len(s.Children().Nodes) != 0 && s.Text() != ""; s = s.NextAll() {
 		bookDetail.ContentIntro += s.Text()
-		bookDetail.ContentIntro += `
-		`
 	}
 	// 编辑推荐
 	s = doc.Find("#abstract").Find(".descrip")
 	for ; len(s.Children().Nodes) != 0 && s.Text() != ""; s = s.NextAll() {
 		bookDetail.EditorRecommend += s.Text()
-		bookDetail.EditorRecommend += `
-		`
 	}
 
 	return bookDetail
